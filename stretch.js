@@ -50,7 +50,12 @@ Output:
 */
 
 export function organizePricesByKey(arr) {
-    return {};
+    let pricesById = {};
+    arr.forEach(item => {
+        let newKey = item.id;
+        pricesById[newKey] = item.price;
+    });
+    return pricesById;
 }
 
 /*
@@ -90,7 +95,12 @@ Output:
 */
 
 export function makeAHashMap(arr) {
-    return {};
+    let hashMap = {};
+    arr.forEach(item => {
+        let newKey  = item.id;
+        hashMap[newKey] = item;
+    });
+    return hashMap;
 }
 
 
@@ -104,5 +114,17 @@ Output:
 */
 
 export function countByCategory(arr) {
-    return {};
+    //take in array and use forEach to increment instances of occurence in vars
+    let countCat = {};
+    arr.forEach(item => {
+        let newKey = item.category;
+        //return object with key as category and value as occurences
+        if (!countCat[newKey]) {
+            countCat[newKey] = 1;
+        } else {
+            countCat[newKey] += 1;
+        }
+    // } else countCat[newKey]++;
+    });
+    return countCat;
 }
