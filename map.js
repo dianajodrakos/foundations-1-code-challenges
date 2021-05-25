@@ -19,7 +19,8 @@ Output:
 */
 
 export function makeArrayOfNamesWithMap(arr) {
-    return [];
+    const names = arr.map(item => item.name);
+    return names;
 }
 
 /*
@@ -33,7 +34,28 @@ Output:
 ]*/
 
 export function makeArrayWithIsHungry(arr) {
-    return [];
+    const hungryArray = arr.map(item => {
+        let newItem = {}
+        newItem.name = item.name;
+        newItem.isHungry = true; 
+        newItem.type = item.type;
+        return newItem;
+    });
+    return hungryArray;
+}
+
+
+/*
+
+Output:
+['spotdog', 'roverdog', 'jumpyfrog', einsteincat']
+*/
+
+export function makeStringArray(arr) {
+    const stringArray = arr.map(item => {
+        return item.name + item.type;
+    });
+    return stringArray; 
 }
 
 /*
@@ -47,19 +69,15 @@ Output:
 ]*/
 
 export function makeShoutingArray(arr) {
-    return [];
+    const shoutingArray = arr.map(item => {
+        let newItem = {};
+        newItem.name = item.name.toUpperCase();
+        newItem.type = item.type;
+        return newItem;
+        });
+    return shoutingArray;
 }
 
-
-/*
-
-Output:
-['spotdog', 'roverdog', 'jumpyfrog', einsteincat']
-*/
-
-export function makeStringArray(arr) {
-    return [];
-}
 
 /*
 Output:
@@ -84,5 +102,14 @@ Output:
 */
 
 export function makeArrayOfArraysOfArrays(arr) {
-    return [];
+    const arrayArray = arr.map(item => {
+
+        const nameArray = [ 'name', item.name ];
+        const typeArray = [ 'type', item.type ];
+
+        let newItem = [ nameArray, typeArray ];
+
+        return newItem;
+    });
+    return arrayArray;
 }
